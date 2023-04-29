@@ -2,10 +2,10 @@
 Write an HTML page with the following functionality
 
 ## Requirements
-1. It should have two input boxes (type=”text”)
-2. It should have one button called `check` which does the following.st
-    1. Check if both input boxes are filled
-    2. Check if both boxes contain email addresses
+1. It should have two input boxes (type=”text”).
+2. It should have one button called `check` which does the following.
+    1. Check if both input boxes are filled.
+    2. Check if both boxes contain email addresses.
         1. Check validity of an email address like this:
             1. There should be a `@` and a `.` character. 
             2. These characters should not be at the end or the start.
@@ -26,5 +26,5 @@ Write an HTML page with the following functionality
 4. Comments
 
 ## Submitting code
-Write all the HTML, CSS and JS in a single file and name it `yourname.html`. For example `rajat.html`.
+Write all the HTML, CSS and JS in a single file and name it `yourname.html`. For example `rajat.html`. 
 Push your code to this repo.

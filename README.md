@@ -15,6 +15,10 @@ Write an HTML page with the following functionality
 3. If there is any error in the #2, then display the error in a `div` above the input boxes.
     1. The error should clearly tell where the error is coming from.
 
+
+## Mock up
+![Mockup](./mockup.jpeg)
+
 ## Rankings
 1. Working code
 2. Naming variables and functions

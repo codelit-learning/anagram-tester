@@ -30,9 +30,6 @@
       #inputBox input {
         width: 250px;
         padding: 10px;
-        /* display: flex; */
-        /* flex-direction: row; */
-        /* margin-right: 200px; */
       }
 
       #checkBtn {
@@ -52,7 +49,6 @@
         <div id="errorBox">
           <h2>Alert box</h2>
         </div>
-
         <div id="inputBox">
         <form onsubmit="checkMail()">
           <input type="text" placeholder="Enter Email" id="emailBox1" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" title="Invalid email address" />
@@ -63,7 +59,6 @@
         </div>
       </div>
     </div>
-
     <script>
            function checkMail(e) {
             event.preventDefault()
@@ -71,8 +66,6 @@
            let emailBox1 = document.getElementById("emailBox1").value;
            let emailBox2 = document.getElementById("emailBox2").value;
            let errorBox = document.getElementById("errorBox");
-         
-
             if((emailBox1)  && (emailBox2)){
               // errorBox.innerHTML = "Both boxes filled";
               let ana = anagram(emailBox1,emailBox2)
@@ -98,13 +91,6 @@
             errorBox.innerHTML = "email is not valid";
 
            }
-          //  else if (emailBox1.match(validRegex) && emailBox1.match(validRegex)) {
-          //      let ana = anagram(emailBox1,emailBox2)
-          //      errorBox.innerHTML = "this is anagram ";
-          //  } else {
-          //    errorBox.innerHTML = "Please Enter correct Email";
-          //  }
-
         //    anagram function
            function anagram(emailBox1, emailBox2){
                let email1 = emailBox1.split('@');
@@ -130,12 +116,7 @@
               console.log(false)
                  return false
             }
-              // return str1, str2
-        }
-        function checkValadityEmail(emailBox1,emailBox2){
-          let email1 = emailBox1.split('@');
-          let email2 = emailBox2.split('@');
-        }
+         }
     }
     </script>
   </body>

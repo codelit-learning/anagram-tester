@@ -97,7 +97,7 @@
                 errordiv.innerHTML = "Input 2 is empty";
             }
             else {
-                let validRegex = "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
+                let validRegex = /\S+@S\S+\.\S+/;
                 if (input1value.match(validRegex)) {
                     errordiv.innerHTML = "Your mail is checked";
                     first = chkanagram(input1value);

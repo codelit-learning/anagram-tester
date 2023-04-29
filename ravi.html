@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TEST</title>
+
+    <style>
+      #mainDiv {
+        border: 1px solid;
+        padding: 5px;
+        width: 100vw;
+      }
+      #childBox {
+        /* display: flex; */
+        margin-top: 100px;
+        margin-left: 25%;
+      }
+
+      #errorBox {
+        width: 600px;
+        height: 50px;
+        border: 3px solid red;
+        text-align: center;
+        border-radius: 5px;
+        margin-bottom: 15px;
+      }
+
+      #inputBox input {
+        width: 250px;
+        padding: 10px;
+        /* display: flex; */
+        /* flex-direction: row; */
+        /* margin-right: 200px; */
+      }
+
+      #checkBtn {
+        padding: 10px;
+        width: 100px;
+        text-align: center;
+        margin-top: 20px;
+        margin-left: 45%;
+        background-color: black;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="mainDiv">
+      <div id="childBox">
+        <div id="errorBox">
+          <h2>Alert box</h2>
+        </div>
+
+        <div id="inputBox">
+          <input type="text" placeholder="Enter Email" id="emailBox1" />
+          <input type="text" placeholder="Enter Email" id="emailBox2" />
+        </div>
+      </div>
+      <button id="checkBtn" onclick="checkMail()">CHECK</button>
+    </div>
+
+    <script>
+           function checkMail() {
+           let emailBox1 = document.getElementById("emailBox1").value;
+           let emailBox2 = document.getElementById("emailBox2").value;
+           let errorBox = document.getElementById("errorBox");
+
+           let validRegex =
+             /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+            if((emailBox1)  && (emailBox2)){
+              errorBox.innerHTML = "Both boxes filled";
+            }
+           else if (emailBox1 == "") {
+             // console.log(errorBox.innerHTML)
+             errorBox.innerHTML = "emailBox1 is Empty";
+           } else if (emailBox2 == "") {
+             errorBox.innerHTML = "emailBox2 is Empty";
+           } 
+           else if (emailBox1.match(validRegex) && emailBox1.match(validRegex)) {
+               let ana = anagram(emailBox1,emailBox2)
+               errorBox.innerHTML = "this is anagram ";
+           } else {
+             errorBox.innerHTML = "Please Enter correct Email";
+           }
+
+        //    anagram function
+           function anagram(emailBox1, emailBox2){
+               let email1 = emailBox1.split('@');
+               let email2 = emailBox2.split('@');
+              let str1  = email1.includes(email2)
+              let str2 = email2.includes(email1)
+              if(str1 == str2){
+                return "true"
+              }
+              else{
+                return "false"
+              }
+              return str1, str2
+        }
+
+        function checkValadityEmail(emailBox1,emailBox2){
+          let email1 = emailBox1.split('@');
+          let email2 = emailBox2.split('@');
+          
+
+        }
+
+
+    }
+    </script>
+  </body>
+</html>

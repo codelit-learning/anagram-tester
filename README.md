@@ -12,3 +12,15 @@ Write an HTML page with the following functionality
     3. If the above conditions are met, check whether the part before the `@` sign are anagrams.
         1. Two strings are anagrams if they contain same characters and same number of characters
         2. Example: `PART` and `TRAP`
+3. If there is any error in the #2, then display the error in a `div` above the input boxes.
+    1. The error should clearly tell where the error is coming from.
+
+## Rankings
+1. Working code
+2. Naming variables and functions
+3. Code quality
+4. Comments
+
+## Submitting code
+Write all the HTML, CSS and JS in a single file and name it `yourname.html`. For example `rajat.html`.
+Push your code to this repo.

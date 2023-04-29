@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .maindiv {
+            display: inline-block;
+            padding-left: 190px;
+            margin: auto;
+        }
+
+        .errdiv {
+            height: 35px;
+            width: 450px;
+            border: 2px solid red;
+            text-align: center;
+            padding-top: 10px;
+
+        }
+
+        .inputdiv {
+            margin: 50px;
+            margin-left: 15px;
+        }
+
+        .inputfilled {
+            height: 30px;
+            width: 200px;
+        }
+
+        .checkbutton {
+            background-color: black;
+            color: white;
+            height: 30px;
+            width: 130px;
+            margin-left: 160px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="maindiv">
+        <div class="errdiv" id="errbox"></div>
+        <div class="inputdiv">
+            <input type="text" class="inputfilled" id="inputboxone">
+            <input type="text" class="inputfilled" id="inputboxtwo">
+        </div>
+        <button class="checkbutton" onclick="checkbutton()">Check</button>
+    </div>
+
+
+    <script>
+        function checkbutton() {
+            let err = document.getElementById("errbox")
+            let firstinput = document.getElementById("inputboxone").value
+            let secondinput = document.getElementById("inputboxtwo").value
+
+            const firstemail = document.getElementById("inputboxone").value;
+
+            const frist = firstinput.split('@')
+            const second = secondinput.split('@')
+            
+
+            const emailRegex = new RegExp(/^[a-z0-9_!#$%&'*+\/=?`{|}~^.-]+@[a-z0-9.-]+$/, "gm");
+
+            
+           
+            if (firstinput == "") {
+                err.innerHTML = "input 1 is empty"
+                console.log(err);
+            } else if (secondinput == "") {
+                err.innerHTML = "input 2 is empty"
+                console.log(err);
+            }  else if (!emailRegex.test(firstemail)) {
+                err.innerHTML = "Please enter a valid email address.";
+            }else if (frist[0].length == second[0].length) {
+                err.textContent = ' anagram';  
+            } else {    
+                err.textContent = 'not anagram';
+            }
+        }
+    </script>
+</body>
+
+</html>

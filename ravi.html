@@ -8,7 +8,7 @@
 
     <style>
       #mainDiv {
-        border: 1px solid;
+        /* border: 1px solid; */
         padding: 5px;
         width: 100vw;
       }
@@ -40,7 +40,7 @@
         width: 100px;
         text-align: center;
         margin-top: 20px;
-        margin-left: 45%;
+        margin-left: 20%;
         background-color: black;
         color: white;
       }
@@ -54,57 +54,89 @@
         </div>
 
         <div id="inputBox">
-          <input type="text" placeholder="Enter Email" id="emailBox1" />
-          <input type="text" placeholder="Enter Email" id="emailBox2" />
+        <form onsubmit="checkMail()">
+          <input type="text" placeholder="Enter Email" id="emailBox1" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" title="Invalid email address" />
+          <input type="text" placeholder="Enter Email" id="emailBox2" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" title="Invalid email address" />
+        <input type="submit"  id="checkBtn" value="check">
+
+        </form>
         </div>
       </div>
-      <button id="checkBtn" onclick="checkMail()">CHECK</button>
     </div>
 
     <script>
-           function checkMail() {
+           function checkMail(e) {
+            event.preventDefault()
+
            let emailBox1 = document.getElementById("emailBox1").value;
            let emailBox2 = document.getElementById("emailBox2").value;
            let errorBox = document.getElementById("errorBox");
-
-           let validRegex =
-             /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+         
 
             if((emailBox1)  && (emailBox2)){
-              errorBox.innerHTML = "Both boxes filled";
+              // errorBox.innerHTML = "Both boxes filled";
+              let ana = anagram(emailBox1,emailBox2)
+
+              if(ana)
+              {
+               errorBox.innerHTML = "this is anagram ";
+
+              }
+              else{
+               errorBox.innerHTML = "this is not anagram ";
+
+              }
             }
            else if (emailBox1 == "") {
              // console.log(errorBox.innerHTML)
              errorBox.innerHTML = "emailBox1 is Empty";
            } else if (emailBox2 == "") {
              errorBox.innerHTML = "emailBox2 is Empty";
+
            } 
-           else if (emailBox1.match(validRegex) && emailBox1.match(validRegex)) {
-               let ana = anagram(emailBox1,emailBox2)
-               errorBox.innerHTML = "this is anagram ";
-           } else {
-             errorBox.innerHTML = "Please Enter correct Email";
+           else{
+            errorBox.innerHTML = "email is not valid";
+
            }
+          //  else if (emailBox1.match(validRegex) && emailBox1.match(validRegex)) {
+          //      let ana = anagram(emailBox1,emailBox2)
+          //      errorBox.innerHTML = "this is anagram ";
+          //  } else {
+          //    errorBox.innerHTML = "Please Enter correct Email";
+          //  }
 
         //    anagram function
            function anagram(emailBox1, emailBox2){
                let email1 = emailBox1.split('@');
+               console.log(email1[0])
                let email2 = emailBox2.split('@');
-              let str1  = email1.includes(email2)
-              let str2 = email2.includes(email1)
-              if(str1 == str2){
-                return "true"
+              let str1  = email1[0].includes(email2[0])
+              console.log(str1)
+              let str2 = email2[0].includes(email1[0])
+              console.log(str2)
+              if(str1.length == str2.length)
+              {
+              if( str1 == str2){
+                console.log(true)
+                return true
               }
               else{
-                return "false"
+                 console.log(false)
+                 return false
               }
-              return str1, str2
+            }
+            else
+            {
+              console.log(false)
+                 return false
+            }
+              // return str1, str2
         }
 
         function checkValadityEmail(emailBox1,emailBox2){
           let email1 = emailBox1.split('@');
           let email2 = emailBox2.split('@');
-          
+
 
         }
 

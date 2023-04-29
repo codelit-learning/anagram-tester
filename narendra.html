@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChackeOut Gmail</title>
+    <style>
+        div {
+            margin: 15px;
+            padding: 15px;
+        }
+
+        .mail {
+            margin: auto;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            width: 200px;
+            height: 45px;
+            width: 45px;
+            border: 1px soild silver;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .emailDiv {
+            display: flex;
+        }
+
+        #inputEmailFirst {
+            font-size: 15px;
+        }
+
+        #inputEmailSecond {
+            font-size: 15px;
+        }
+
+        #divTittle {
+            margin: auto;
+            border: 2px solid red;
+            font-size: 30px;
+            height: 50px;
+            width: 700px;
+
+        }
+
+        .btn {
+            text-align: center;
+            padding: 30px;
+
+        }
+
+        .btn>button {
+            font-size: 30px;
+            color: antiquewhite;
+            background-color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="divTittle"></div>
+    <div class="emailDiv">
+        <div class="mail">
+            <input type="email" name="email" id="inputEmailFirst">
+        </div>
+        <div class="mail">
+            <input type="email" name="email" id="inputEmailSecond">
+        </div>
+    </div>
+    <div class="btn">
+        <button onclick="checkInput()">check</button>
+    </div>
+
+
+
+    <script>
+        function checkInput() {
+            const div = document.getElementById("divTittle")
+            const emailFirst = document.getElementById("inputEmailFirst")
+            let firstEmail = emailFirst.value
+            const emailSecond = document.getElementById("inputEmailSecond")
+            let secondEmail = emailSecond.value
+            let splitValueFirst = firstEmail.split("@")
+            let splitValueSecond = secondEmail.split("@")
+            let oneAnagram = splitValueFirst[0].split("").sort().join("")
+            let TwoAnagram = splitValueSecond[0].split("").sort().join("")
+
+            
+            // console.log(emailAnagram)
+
+
+            var validRegex =  /\S+@\S+\.\S+/
+
+            if (firstEmail.match(validRegex) && secondEmail.match(validRegex)) {   
+                alert("Valid email address!");
+                if (firstEmail == "" || secondEmail == "") {
+                    div.textContent = "emplty email"
+                } else if (firstEmail === secondEmail) {
+                    div.textContent = "same email"
+                } else if (oneAnagram === TwoAnagram) {
+                    div.textContent = "Anagram email"
+                } else {
+                    div.textContent = "Don't match email"
+                }
+                return true;
+            } else {
+                alert("Invalid email address!");
+                div.textContent = "Invalid email address!"
+                return false;
+            }
+
+        }
+    </script>
+</body>
+
+</html>

@@ -62,7 +62,7 @@
     <div id="divTittle"></div>
     <div class="emailDiv">
         <div class="mail">
-            <input type="email" name="email" id="inputEmailFirst">
+            <input type="email" name="email" id="inputEmailFirst" required>
         </div>
         <div class="mail">
             <input type="email" name="email" id="inputEmailSecond">
@@ -86,16 +86,20 @@
             let oneAnagram = splitValueFirst[0].split("").sort().join("")
             let TwoAnagram = splitValueSecond[0].split("").sort().join("")
 
-            
-            // console.log(emailAnagram)
+            // condition of first and second input are empty
+           
 
+            // email validation
+            var validRegex = /\S+@\S+\.\S+/;
 
-            var validRegex =  /\S+@\S+\.\S+/
-
-            if (firstEmail.match(validRegex) && secondEmail.match(validRegex)) {   
+            if (firstEmail.match(validRegex) && secondEmail.match(validRegex)) {
                 alert("Valid email address!");
                 if (firstEmail == "" || secondEmail == "") {
                     div.textContent = "emplty email"
+                } else if (firstEmail === "") {
+                    div.textContent = "Input 1 is empty";
+                } else if (secondEmail == "") {
+                    div.textContent = "Input 2 is empty";
                 } else if (firstEmail === secondEmail) {
                     div.textContent = "same email"
                 } else if (oneAnagram === TwoAnagram) {
@@ -105,9 +109,15 @@
                 }
                 return true;
             } else {
-                alert("Invalid email address!");
+                if (firstEmail === "") {
+                div.textContent = "Input 1 is empty";
+            } else if (secondEmail == "") {
+                div.textContent = "Input 2 is empty";
+            }else {
                 div.textContent = "Invalid email address!"
+                // alert("Invalid email address!");
                 return false;
+            }
             }
 
         }
